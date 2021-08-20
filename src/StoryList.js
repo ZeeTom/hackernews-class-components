@@ -8,6 +8,10 @@ const BASE_URL = "https://hn.algolia.com/api/v1/search?query=";
 class StoryList extends React.Component {
   state = { searchTerm: "", stories: [] };
 
+  handleSearch = () => {
+    
+  }
+
   async componentDidUpdate(prevProps, prevState) {
     if (prevState.searchTerm !== this.state.searchTerm) {
       const resp = await axios.get(`${BASE_URL}${this.state.searchTerm}`);

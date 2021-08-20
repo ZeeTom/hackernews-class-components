@@ -4,15 +4,18 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { formData: "" };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  change = (evt) => {
-    this.setState({ formData: evt.target.search.value })
+  handleChange(evt) {
+    this.setState({ formData: evt.target.value })
   }
 
-  handleSubmit = (evt) => {
+  handleSubmit(evt){
     evt.preventDefault();
-    
+    this.props.handleSearch(this.state.formData);
+    this.setState({ formData:"" });
   }
 
   render() {
@@ -21,7 +24,7 @@ class SearchForm extends React.Component {
         <div>
           <input 
             name="search"
-            onChange={this.change} />
+            onChange={this.handleChange} />
           <input type="submit" />
         </div>
       </form>

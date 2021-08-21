@@ -9,26 +9,24 @@ class SearchForm extends React.Component {
   }
 
   handleChange(evt) {
-    this.setState({ formData: evt.target.value })
+    this.setState({ formData: evt.target.value });
   }
 
-  handleSubmit(evt){
+  handleSubmit(evt) {
     evt.preventDefault();
     this.props.handleSearch(this.state.formData);
-    this.setState({ formData:"" });
+    this.setState({ formData: "" });
   }
 
   render() {
     return (
-      <form onsubmit={this.handleSubmit} className="SearchForm">
+      <form onSubmit={this.handleSubmit} className="SearchForm">
         <div>
-          <input 
-            name="search"
-            onChange={this.handleChange} />
+          <input name="search" onChange={this.handleChange} />
           <input type="submit" />
         </div>
       </form>
-    )
+    );
   }
 }
 

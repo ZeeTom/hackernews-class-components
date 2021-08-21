@@ -1,12 +1,12 @@
 import React from "react";
 
 class Story extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
   render() {
-    return <h1>Story{this.props.stories}</h1>;
+    return <a href={this.props.story.url}>{this.props.story.title}</a>;
   }
 }
 
